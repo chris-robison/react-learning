@@ -2,8 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-let ex = '❌';
-let oh = '⭕️';
+const emojiSupport = require('detect-emoji-support');
+
+let ex;
+let oh;
+
+if (emojiSupport) {
+    ex = '❌';
+    oh = '⭕️';
+} else {
+    ex = 'X';
+    oh = 'O';
+}
 
 class Square extends React.Component {
     render() {
